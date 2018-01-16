@@ -67,9 +67,9 @@
         $(function () {
             päivitäHenkilölistaus();
 
-            $("#lisaaUusiHenkiloButton").click(function () {
+            $("#henkiloModallisaaUusiHenkiloButton").click(function () {
 
-                $("#henkiloModal_HenkiloID").val("(uusi)");
+                $("#henkiloModal_HenkiloID").val(("uusi"));
                 $("#henkiloModal_Etunimi").val("");
                 $("#henkiloModal_Sukunimi").val("");
                 $("#henkiloModal_Osoite").val("");
@@ -79,7 +79,9 @@
                 $("#henkiloModalDialog").modal("show");
             });
 
-            $("henkiloModalSaveButton").click(function () {
+            
+
+            $("#henkiloModalSaveButton").click(function () {
 
                 var details = {
                     HenkiloID: $("#henkiloModal_HenkiloID").val(),
@@ -110,7 +112,9 @@
 
 }
 <h2>Henkilöt</h2>
-<button class="btn btn-info" id="lisaaUusiHenkiloButton">Lisää uusi</button>
+
+<button class="btn btn-info" id="henkiloModallisaaUusiHenkiloButton">Lisää uusi</button>
+
 
 <table class="table table-striped" id="henkiloList">
 
@@ -136,7 +140,7 @@
             </div>
             <div class="modal-body">
                 <div class="row">
-                    <div class="col-md-3">HenkilöId</div>
+                    <div class="col-md-3">HenkilöID</div>
                     <div class="col-md-6"><input class="form-control" id="henkiloModal_HenkiloID" type="text" readonly></div>
                 </div>
                 <div class="row">
@@ -157,8 +161,8 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Sulje</button>
                 <button type="button" class="btn btn-success" id="henkiloModalSaveButton">Tallenna</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Sulje</button>
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->

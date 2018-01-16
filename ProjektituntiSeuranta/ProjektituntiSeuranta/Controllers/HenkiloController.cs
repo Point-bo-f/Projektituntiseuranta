@@ -72,7 +72,7 @@ namespace MVCkurssitehtavaJatkokurssi.Controllers
         public ActionResult Update(Henkilot henk)
         {
             AsiakastietokantaEntities entities = new AsiakastietokantaEntities();
-
+           
             bool OK = false;
 
             // onko kyseessä muokkaus vai uuden lisääminen?
