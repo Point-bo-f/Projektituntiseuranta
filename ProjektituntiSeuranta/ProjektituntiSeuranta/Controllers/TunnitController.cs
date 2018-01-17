@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Globalization;
 
 namespace MVCkurssitehtavaJatkokurssi.Controllers
 {
@@ -13,6 +14,7 @@ namespace MVCkurssitehtavaJatkokurssi.Controllers
         public ActionResult Index2()
         {
             AsiakastietokantaEntities entities = new AsiakastietokantaEntities();
+            CultureInfo fifi = new CultureInfo("fi-FI");
             List<Tunnit> model = entities.Tunnits.ToList();
             entities.Dispose();
 
@@ -27,6 +29,9 @@ namespace MVCkurssitehtavaJatkokurssi.Controllers
         public JsonResult GetList()
         {
             AsiakastietokantaEntities entities = new AsiakastietokantaEntities();
+
+            CultureInfo fifi = new CultureInfo("fi-FI");
+
             //List<Projektit> model = entities.Projektit.ToList();
 
             var model = (from t in entities.Tunnits
@@ -51,6 +56,9 @@ namespace MVCkurssitehtavaJatkokurssi.Controllers
 
             {
                 AsiakastietokantaEntities entities = new AsiakastietokantaEntities();
+
+                CultureInfo fifi = new CultureInfo("fi-FI");
+
                 var model = (from t in entities.Tunnits
                              where t.TuntiID == id
                              select new
@@ -72,6 +80,8 @@ namespace MVCkurssitehtavaJatkokurssi.Controllers
         public ActionResult Update(Tunnit tunt)
         {
             AsiakastietokantaEntities entities = new AsiakastietokantaEntities();
+
+            CultureInfo fifi = new CultureInfo("fi-FI");
 
             bool OK = false;
 
