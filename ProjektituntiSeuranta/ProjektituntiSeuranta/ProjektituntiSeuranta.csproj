@@ -152,6 +152,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HenkiloController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MdHenkiloController.cs" />
     <Compile Include="Controllers\ProjektiController.cs" />
     <Compile Include="Controllers\TunnitController.cs" />
     <Compile Include="Global.asax.cs">
@@ -243,6 +244,7 @@
     <Content Include="Views\Henkilo\Index.cshtml" />
     <Content Include="Views\Projekti\Index.cshtml" />
     <Content Include="Views\Tunnit\Index.cshtml" />
+    <Content Include="Views\MdHenkilo\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -110,11 +110,10 @@
 
 
 }
-    <h1>
-        <div>
-            @Html.ActionLink("Kotisivulle", "Index", "Home")
-        </div>
-    </h1>
+    <h5>
+        @Html.ActionLink("Kotisivulle         ", "Index", "Home", null, new { id = "OT", style = "color:white" })@Html.ActionLink("Henkilöt", "Index", "Henkilo", null, new { id = "OT", style = "color: darkturquoise" })@Html.ActionLink("      Projektit", "Index", "Projekti", null, new { id = "OT", style = "color: blue" })
+
+    </h5>
 <h2>Tunnit</h2>
 <button class="btn btn-success" id="lisaaUusiTuntiButton">Lisää uusi</button>
 
