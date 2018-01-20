@@ -185,8 +185,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\1970d5c0f3f34b90c4fcd91de1f9189c.jpg" />
+    <Content Include="Content\banner_construction.png" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\geo1020x579.png" />
+    <Content Include="Content\Orange.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -214,6 +218,7 @@
     <Content Include="Models\AsiakastietokantaModel.edmx.diagram">
       <DependentUpon>AsiakastietokantaModel.edmx</DependentUpon>
     </Content>
+    <Content Include="Content\24.psd" />
     <None Include="Properties\PublishProfiles\HenkiloProjektituntiSeurantaMVC - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\ProjektituntiSeurantaAspNet - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
