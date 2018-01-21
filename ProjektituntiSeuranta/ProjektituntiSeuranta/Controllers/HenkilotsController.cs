@@ -130,8 +130,8 @@ namespace ProjektituntiSeuranta.Controllers
 
             AsiakastietokantaEntities entities = new AsiakastietokantaEntities();
             List<Tunnit> tunnit = (from t in entities.Tunnits
-                                where t.HenkiloID == iid
-                                select t).ToList();
+                                   where t.HenkiloID == iid
+                                   select t).ToList();
 
             List<SimpleProjektiData> result = new List<SimpleProjektiData>();
 

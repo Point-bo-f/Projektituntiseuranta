@@ -18,6 +18,14 @@
             var url = "/henkilots/getprojektit/" + henkiloId;
             $.ajax(url).done(function (data) {
                 alert("Palvelimelta tuli vastaus!");
+
+                var TuntiData = "";
+
+                for (var i = 0; i < data.length; i++) {
+                    TuntiData += (i + 1) + ": " + data[i].TuntiID+" "
+                        +data[i].ProjektiID + " " + data[i].Projektitunnit + "\r\n";
+                }
+                $("#projektiText_" + henkiloId).text(TuntiData);
             });
         });
     });
@@ -76,7 +84,7 @@
     </tr>
     <tr style="display:none;" id="projektit_@Html.DisplayFor(modelItem => item.HenkiloID)">        
         <td>&nbsp;</td>
-        <td id="projektiText_@Html.DisplayFor(modelItem => item.HenkiloID)">Loading...</td>
+        <td colspan="5" id="projektiText_@Html.DisplayFor(modelItem => item.HenkiloID)"><pre>Loading...</pre></td>
     </tr>
 }
 
