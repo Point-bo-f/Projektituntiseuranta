@@ -1,5 +1,7 @@
-﻿
-
+﻿@{
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
 @section scripts {
 
     <script type="text/javascript">
@@ -26,7 +28,7 @@
 
                     $.getJSON("/projekti/getsingleprojekti/" + projektiId, null, function (json2) {
                         var projekti = JSON.parse(json2);
-                        
+
                         // kopioidaan tiedot ikkunaan
                         $("#projektiModal_ProjektiID").val(projekti.ProjektiID);
                         $("#projektiModal_Projektinimi").val(projekti.Projektinimi);
@@ -98,11 +100,11 @@
 
 
 }
-    <h5>
-        @Html.ActionLink("Kotisivulle         ", "Index", "Home", null, new { id = "OT", style = "color:orange" })@Html.ActionLink("Henkilöt", "Index", "Henkilo", null, new { id = "OT", style = "color: darkturquoise" })@Html.ActionLink("      Tunnit", "Index", "Tunnit", null, new { id = "OT", style = "color: green" })
+    <h4>
+        @Html.ActionLink("Kotisivulle         ", "Index", "Home", null, new { id = "OT", style = "color:orange" })@Html.ActionLink("Henkilöt", "Index", "Henkilo", null, new { id = "OT", style = "color: darkturquoise" })@Html.ActionLink("      Tunnit", "Index", "Tunnit", null, new { id = "OT", style = "color: green" })@Html.ActionLink("      Tunnit/projekti", "Index", "Henkilots", null, new { id = "OT", style = "color: red" })
 
-    </h5>
- 
+    </h4>
+
 <h2>Projektit</h2>
 <button class="btn btn-primary" id="lisaaUusiProjektiButton">Lisää uusi</button>
 

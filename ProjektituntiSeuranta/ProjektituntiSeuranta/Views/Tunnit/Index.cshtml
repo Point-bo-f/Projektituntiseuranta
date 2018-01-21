@@ -1,4 +1,7 @@
-﻿
+﻿@{
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
 
 @section scripts {
 
@@ -110,10 +113,10 @@
 
 
 }
-    <h5>
-        @Html.ActionLink("Kotisivulle         ", "Index", "Home", null, new { id = "OT", style = "color:orange" })@Html.ActionLink("Henkilöt", "Index", "Henkilo", null, new { id = "OT", style = "color: darkturquoise" })@Html.ActionLink("      Projektit", "Index", "Projekti", null, new { id = "OT", style = "color: blue" })
+    <h4>
+        @Html.ActionLink("Kotisivulle         ", "Index", "Home", null, new { id = "OT", style = "color:orange" })@Html.ActionLink("Henkilöt", "Index", "Henkilo", null, new { id = "OT", style = "color: darkturquoise" })@Html.ActionLink("      Projektit", "Index", "Projekti", null, new { id = "OT", style = "color: blue" })@Html.ActionLink("      Tunnit/projekti", "Index", "Henkilots", null, new { id = "OT", style = "color: red" })
 
-    </h5>
+    </h4>
 <h2>Tunnit</h2>
 <button class="btn btn-success" id="lisaaUusiTuntiButton">Lisää uusi</button>
 

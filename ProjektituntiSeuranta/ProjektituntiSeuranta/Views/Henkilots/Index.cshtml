@@ -1,0 +1,83 @@
+﻿@model IEnumerable<ProjektituntiSeuranta.Models.Henkilot>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section scripts{
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $(".näytäProjektitNappi").click(function () {
+            //alert("Nappia painettu");
+            var henkiloId = $(this).data("henkiloid");
+            var p1 = $(this).parent();  
+            //alert(henkiloId);
+            $("#projektit_" + henkiloId).css("display", "block");
+
+            var url = "/henkilots/getprojektit/" + henkiloId;
+            $.ajax(url).done(function (data) {
+                alert("Palvelimelta tuli vastaus!");
+            });
+        });
+    });
+</script>
+}
+<h4>
+    @Html.ActionLink("Kotisivulle         ", "Index", "Home", null, new { id = "OT", style = "color:orange" })@Html.ActionLink("Henkilöt", "Index", "Henkilo", null, new { id = "OT", style = "color: darkturquoise" })@Html.ActionLink("      Projektit", "Index", "Projekti", null, new { id = "OT", style = "color: blue" })@Html.ActionLink("      Tunnit", "Index", "Tunnit", null, new { id = "OT", style = "color: green" })
+
+</h4>
+
+<h2>Tunnit/Projekti/Henkilö</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Etunimi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sukunimi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Osoite)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Esimies)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            <a href="#"><span data-henkiloid="@Html.DisplayFor(modelItem => item.HenkiloID)" class="glyphicon glyphicon-plus näytäProjektitNappi"></span></a>
+            @Html.DisplayFor(modelItem => item.HenkiloID)
+        </td>
+        <td>           
+            @Html.DisplayFor(modelItem => item.Etunimi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sukunimi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Osoite)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Esimies)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.HenkiloID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.HenkiloID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.HenkiloID })
+        </td>
+    </tr>
+    <tr style="display:none;" id="projektit_@Html.DisplayFor(modelItem => item.HenkiloID)">        
+        <td>&nbsp;</td>
+        <td id="projektiText_@Html.DisplayFor(modelItem => item.HenkiloID)">Loading...</td>
+    </tr>
+}
+
+</table>

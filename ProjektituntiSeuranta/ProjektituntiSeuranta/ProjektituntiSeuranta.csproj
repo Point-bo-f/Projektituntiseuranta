@@ -151,9 +151,11 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HenkiloController.cs" />
+    <Compile Include="Controllers\HenkilotsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MdHenkiloController.cs" />
     <Compile Include="Controllers\ProjektiController.cs" />
+    <Compile Include="Controllers\ProjektitsController.cs" />
     <Compile Include="Controllers\TunnitController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -179,6 +181,7 @@
     <Compile Include="Models\Projektit.cs">
       <DependentUpon>AsiakastietokantaModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\SimpleProjektiData.cs" />
     <Compile Include="Models\Tunnit.cs">
       <DependentUpon>AsiakastietokantaModel.tt</DependentUpon>
     </Compile>
@@ -249,11 +252,19 @@
     <Content Include="Views\Henkilo\Index.cshtml" />
     <Content Include="Views\Projekti\Index.cshtml" />
     <Content Include="Views\Tunnit\Index.cshtml" />
-    <Content Include="Views\MdHenkilo\Index.cshtml" />
+    <Content Include="Views\Projektits\Create.cshtml" />
+    <Content Include="Views\Projektits\Delete.cshtml" />
+    <Content Include="Views\Projektits\Details.cshtml" />
+    <Content Include="Views\Projektits\Edit.cshtml" />
+    <Content Include="Views\Projektits\Index.cshtml" />
+    <Content Include="Views\Henkilots\Create.cshtml" />
+    <Content Include="Views\Henkilots\Delete.cshtml" />
+    <Content Include="Views\Henkilots\Details.cshtml" />
+    <Content Include="Views\Henkilots\Edit.cshtml" />
+    <Content Include="Views\Henkilots\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Henkilot\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

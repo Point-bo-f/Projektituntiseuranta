@@ -9,11 +9,11 @@
     <link href="~/Style/Layout.css" rel="stylesheet" />
 </head>
 <body>
-  <div>
-      <body>
-          <img class="header-logo" src="@Url.Content("~/Content/banner_construction.png")" alt="Image Logo" width="1600" height="300" />
-      </body>
-  </div>
+
+
+    <div>
+        <img class="header-logo" src="@Url.Content("~/Content/banner_construction.png")" alt="Image Logo" width="1280" height="300" />
+    </div>
     <div class="container body-content">
         @RenderBody()
         <hr />
@@ -21,9 +21,10 @@
             <p>&copy; @DateTime.Now.Year - Bo Furustam</p>
         </footer>
     </div>
-
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+    @RenderSection("headscripts", required: false)
+
 </body>
 </html>

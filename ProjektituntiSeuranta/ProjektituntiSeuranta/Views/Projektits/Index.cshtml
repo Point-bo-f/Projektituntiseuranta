@@ -1,0 +1,35 @@
+﻿@model IEnumerable<ProjektituntiSeuranta.Models.Projektit>
+
+@{
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Projektinimi)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Projektinimi)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ProjektiID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ProjektiID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ProjektiID })
+            </td>
+        </tr>
+    }
+
+</table>

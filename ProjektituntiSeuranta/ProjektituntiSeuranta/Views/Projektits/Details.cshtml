@@ -1,0 +1,26 @@
+﻿@model ProjektituntiSeuranta.Models.Projektit
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Projektit</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Projektinimi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Projektinimi)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ProjektiID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
