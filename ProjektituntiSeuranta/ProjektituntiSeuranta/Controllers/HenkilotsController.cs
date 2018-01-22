@@ -145,7 +145,7 @@ namespace ProjektituntiSeuranta.Controllers
 
             }
         
-        return Json(tunnit, JsonRequestBehavior.AllowGet);
+        return Json(result, JsonRequestBehavior.AllowGet);
 
 
             

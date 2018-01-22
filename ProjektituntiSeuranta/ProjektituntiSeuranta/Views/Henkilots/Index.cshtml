@@ -11,7 +11,7 @@
         $(".näytäProjektitNappi").click(function () {
             //alert("Nappia painettu");
             var henkiloId = $(this).data("henkiloid");
-            var p1 = $(this).parent();  
+            //var p1 = $(this).parent();  
             //alert(henkiloId);
             $("#projektit_" + henkiloId).css("display", "block");
 
@@ -22,10 +22,10 @@
                 var TuntiData = "";
 
                 for (var i = 0; i < data.length; i++) {
-                    TuntiData += (i + 1) + ": " + data[i].TuntiID+" "
+                    TuntiData += (i + 1) + ": " + data[i].HenkiloID+" "
                         +data[i].ProjektiID + " " + data[i].Projektitunnit + "\r\n";
                 }
-                $("#projektiText_" + henkiloId).text(TuntiData);
+                $("#projektiText_" + henkiloId).html("<pre>" + TuntiData + "</pre>");
             });
         });
     });
