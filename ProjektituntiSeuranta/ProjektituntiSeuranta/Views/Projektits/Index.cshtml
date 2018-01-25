@@ -4,32 +4,74 @@
     ViewBag.Title = "Home Page";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@section scripts{
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $(".näytäTunnitNappi").click(function () {
+                //alert("Nappia painettu");
+                var projektiId = $(this).data("projektiid");
+                //var p1 = $(this).parent();
+                //alert(henkiloId);
+                $("#tunnit_" + projektiId).css("display", "block");
 
-<h2>Index</h2>
+                var url = "/projektits/gettunnit/" + projektiId;
+                $.ajax(url).done(function (data) {
+                    //alert("Palvelimelta tuli vastaus!");
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Projektinimi)
-        </th>
-        <th></th>
-    </tr>
+                    var TuntiData = "";
 
-    @foreach (var item in Model)
-    {
+                    for (var i = 0; i < data.length; i++) {
+                        TuntiData += (i + 1) + ": "
+                            + data[i].HenkiloID + " " + data[i].Projektitunnit + "\r\n";
+                    }
+                    $("#tuntiText_" + projektiId).html("<pre>" + TuntiData + "</pre>");
+                });
+            });
+        });
+    </script>
+    <h4>
+        @Html.ActionLink("Kotisivulle         ", "Index", "Home", null, new { id = "OT", style = "color:orange" })@Html.ActionLink("Henkilöt", "Index", "Henkilo", null, new { id = "OT", style = "color: darkturquoise" })@Html.ActionLink("      Projektit", "Index", "Projekti", null, new { id = "OT", style = "color: blue" })@Html.ActionLink("      Tunnit", "Index", "Tunnit", null, new { id = "OT", style = "color: green" })@Html.ActionLink("      HlöTunnit", "Index", "Henkilots", null, new { id = "OT", style = "color: red" })
+
+    </h4>
+
+    <h2>Hlötunnit/projekti</h2>
+
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Projektinimi)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.ProjektiID }) |
-                @Html.ActionLink("Details", "Details", new { id = item.ProjektiID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.ProjektiID })
-            </td>
+            <th>
+                @Html.DisplayNameFor(model => model.ProjektiID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Projektinimi)
+            </th>
+            <th></th>
         </tr>
-    }
 
-</table>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <a href="#"><span data-projektiid="@Html.DisplayFor(modelItem => item.ProjektiID)" class="glyphicon glyphicon-plus näytäTunnitNappi"></span></a>
+                    @Html.DisplayFor(modelItem => item.ProjektiID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Projektinimi)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ProjektiID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.ProjektiID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ProjektiID })
+                </td>
+            </tr>
+            <tr style="display:none;" id="tunnit_@Html.DisplayFor(modelItem => item.ProjektiID)">
+                <td>&nbsp;</td>
+                <td colspan="5" id="tuntiText_@Html.DisplayFor(modelItem => item.ProjektiID)"><pre>Loading...</pre></td>
+            </tr>
+        }
+
+    </table>
+}

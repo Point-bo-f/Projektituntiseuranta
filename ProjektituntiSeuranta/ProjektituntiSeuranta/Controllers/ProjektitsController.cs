@@ -123,5 +123,28 @@ namespace ProjektituntiSeuranta.Controllers
             }
             base.Dispose(disposing);
         }
+        public ActionResult GetTunnit(string id)
+        {
+            int iid = int.Parse(id);
+
+
+            AsiakastietokantaEntities entities = new AsiakastietokantaEntities();
+            List<Tunnit> tunnit = (from t in entities.Tunnits
+                                   where t.ProjektiID == iid
+                                   select t).ToList();
+
+            List<SimpleProjektiData> result = new List<SimpleProjektiData>();
+
+            foreach (Tunnit tunti in tunnit)
+            {
+                SimpleProjektiData data = new SimpleProjektiData();
+                data.HenkiloID = (int)tunti.HenkiloID;
+                data.Projektitunnit = (int)tunti.Projektitunnit;
+                result.Add(data);
+
+            }
+
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
     }
 }

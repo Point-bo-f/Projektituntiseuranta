@@ -17,7 +17,7 @@
 
             var url = "/henkilots/getprojektit/" + henkiloId;
             $.ajax(url).done(function (data) {
-                alert("Palvelimelta tuli vastaus!");
+                //alert("Palvelimelta tuli vastaus!");
 
                 var TuntiData = "";
 
@@ -32,7 +32,7 @@
 </script>
 }
 <h4>
-    @Html.ActionLink("Kotisivulle         ", "Index", "Home", null, new { id = "OT", style = "color:orange" })@Html.ActionLink("Henkilöt", "Index", "Henkilo", null, new { id = "OT", style = "color: darkturquoise" })@Html.ActionLink("      Projektit", "Index", "Projekti", null, new { id = "OT", style = "color: blue" })@Html.ActionLink("      Tunnit", "Index", "Tunnit", null, new { id = "OT", style = "color: green" })
+    @Html.ActionLink("Kotisivulle         ", "Index", "Home", null, new { id = "OT", style = "color:orange" })@Html.ActionLink("Henkilöt", "Index", "Henkilo", null, new { id = "OT", style = "color: darkturquoise" })@Html.ActionLink("      Projektit", "Index", "Projekti", null, new { id = "OT", style = "color: blue" })@Html.ActionLink("      Tunnit", "Index", "Tunnit", null, new { id = "OT", style = "color: green" })@Html.ActionLink("     ProjTunnit", "Index", "Projektits", null, new { id = "OT", style = "color:grey" })
 
 </h4>
 
